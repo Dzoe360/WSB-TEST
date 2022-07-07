@@ -18,8 +18,12 @@ resource storageaccount_res 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   kind: 'StorageV2'
   properties:{
     allowBlobPublicAccess:false
-    accessTier: 'Cool'
+    accessTier: 'Hot'
     allowSharedKeyAccess: false
+    networkAcls: {
+      defaultAction: 'Deny'
+      bypass:'AzureServices'
+    } 
   }
   sku: {
     name: storageSKU
